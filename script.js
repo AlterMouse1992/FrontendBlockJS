@@ -1,196 +1,138 @@
-'use strict'
-// Условие
-// Пример 1
-// Если переменная num = 5, то выведите 'true' в console.log, иначе выведите 
-//'false'.
-// let num = 5;
-// if(num === 5){
-//     console.log(true);
-// }else{
-//     console.log(false);
+'use strict';
+// function calculateArea(r){
+//     let area;
+//     if(r<=0){
+//         return 0;
+//     }else{
+//         area = Math.PI * r *r;
+//         return area;
+//     }
 // }
-// Пример 2
-// У вас есть дом. В доме 3 подъезда, в каждом подъезде по 10 квартир.
-// 1 подъезд = 1 - 10;
-// 2 подъезд = 11 - 20;
-// 3 подъезд = 21 - 30;
-// При введении номера квартиры в консоль должно выводиться номер подъезда
-// Если вводить не существующую квартиру должно выводиться 'нет такой квартиры'
-// let number = 100;
-// if (number > 0 && number <= 10){
-//     console.log('1 подъезд');
-// }else if(number > 10 && number <=20){
-//     console.log('2 подъезд');
-// }else if(number > 20 && number <=30){
-//     console.log('3 подъезд');
-// }else{
-//     console.log('нет такой квартиры');
-// }
-// Циклы
-// Пример 3
-// Выведите столбец чисел от 1 до 10.
-// let i = 1;
-// while(i <= 10){
-//     console.log(i);
-//     i++;
-// }
-// Пример 4
-// Дан массив с элементами [1,2,3]. C помощью цикла for выведите все 
-// эти элементы.
-// let arr = [1,2,3];
-// for(let i = 0; i < arr.length; i++){
-//     console.log(arr[i]);
-// }
-// Пример 5
-// Дан массив с элементами [2,3,4,5]. С помощью цикла for найдите произведение
-// элементов этого массива.
-// let result = 1;
-// let arr = [2,3,4,5];
-// for(let i = 0; i < arr.length; i++){
-//     result = result * arr[i];
-//     // 1*2 = 2
-//     //2*3 = 6
-//     // 6 * 4 = 24
-//     // 24 * 5 = 120
-// }
-// console.log(result);
+// let radius = 2.2;
+// let theArea = calculateArea(radius);
+// console.log('The area is: ' + theArea);
+
+// Дана строка 'abc!def!'. Замените все ! на '@' 
+// с помощью глобального поиска и замены.
+// let txt = 'abc!def!';
+// console.log(txt.replace(/!/g, '@'));
+
+
+// Дана строка 'aaa bbb ccc'. Вырежите из нее слово 'bbb' 
+// тремя разными способами (через substr, substring, slice).
+// let txt = 'aaa bbb ccc';
+// console.log(txt.substr(4,3));
+// console.log(txt.substring(4,7));
+// console.log(txt.slice(4,7));
+
+// Дана строка 'js'. Сделайте из нее строку 'JS'.
+// let txt = 'js';
+// console.log(txt.toUpperCase());
+
+// Дана строка 'я люблю JS!'. Найдите количество 
+// символов в этой строке.
+// let txt = 'я люблю JS!';
+// console.log(txt.length);
 
 // Домашнее задание
-// Условия
-// Пример 1
-// В переменной minute лежит число от 0 до 59. 
-// Определите в какую четверть часа попадает это число 
-// (в первую, вторую, третью или четвертую).
+// Выписать в комментариях. Вам необходимо найти все переменные,
+// функции, аргументы и параметры.
+// Запишите имена в соответсвующие пункты
+// Переменные: years, myDog, guests;
+// Функции: dogYears, makeTea, secret;
+// Встроенные функции: ??
+// Аргументы: myDog, 4, guests, 'Earl Grey';
+// Параметры: dogname, age, cups, tea;
+// function dogYears(dogname, age){
+//     let years = age * 2;
+//     console.log(dogName + ' is ' + years + ' years old');
+// }
+// let myDog = 'Rex';
+// dogYears(myDog, 4);
 
-let minute = 44;
-if(minute <= 15 && minute >=0){
-    console.log('I четверть');
+// function makeTea (cups, tea){
+//     console.log('Breawing ' + cups + ' cups of' + tea);
+// }
+// let guests = 2;
+// makeTea(guests, 'Earl Grey');
+
+// function secret(){
+//     console.log('The secret of life is 28');
+// }
+// secret();
+
+
+// Дана строка 'JS'. Сделайте из нее строку 'js'.
+
+let text = 'JS';
+console.log(text.toLowerCase());
+
+
+// Дана строка 'я люблю JS!'. Вырежите из нее слово 
+// 'люблю' и слово 'javascript' тремя разными способами 
+// (через substr, substring, slice).
+
+text = 'я люблю javascript!';
+console.log(text.substr(2, 5));
+console.log(text.substr(8, 10));
+console.log(text.substring(2, 7));
+console.log(text.substring(8, 18));
+console.log(text.slice(2, 7));
+console.log(text.slice(8, 18));
+
+
+
+// Дана строка 'я люблю JS!'. Найдите позицию 
+// подстроки 'люблю'.
+
+text = 'я люблю JS!';
+console.log(text.indexOf('люблю'));
+
+// Дана переменная txt, в которой хранится какой-либо текст. 
+// Реализуйте обрезание длинного текста по следующему 
+// принципу: если количество символов этого текста больше 
+// заданного в переменной n, то в переменную result запишем 
+// первые n символов строки txt и добавим в конец 
+// троеточие '...'. В противном случае в переменную 
+// result запишем содержимое переменной txt.
+
+
+function cutText(n) {
+    let result;
+    let txt = "О, сколько мне открытий чудных дарует Просвещения дух!";
+    if(txt.length < n){
+        result = txt;
+    } else {
+        result = txt.slice(0, n)  
+        return result;      
+    }
+   
 }
-else if(minute <= 30 && minute >= 16){
-    console.log('II четверть');
-}
-else if(minute <= 45 && minute >= 31){
-    console.log('III четверть');
-}
-else if(minute <= 59 && minute >= 46){
-    console.log('IV четверть');
-}
-else {
-    console.log('Час уже прошел');
-}
+let symbols = 54;
+let myTxt = cutText(symbols);
+console.log ('что у меня получилось: ' + myTxt)
+//Не разобралась, почему если n>text.length то получается undefined
 
-// Пример 2
-// Переменная lang может принимать 2 значения: 'ru' 'en'. 
-// Если она имеет значение 'ru', то в переменную arr 
-// запишем массив дней недели на русском языке, 
-// а если имеет значение 'en' – то на английском. 
-// для ru - arr = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
-// для en - arr = ['mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn'];
+// Для решения задач данного блока вам понадобятся следующие 
+// методы: replace.
+// Дана строка 'Я-люблю-JS!'. 
+// Замените все  '-' на '!' с помощью глобального 
+// поиска и замены.
 
-let lang = 'ru';
-let arr;
-if(lang === 'ru'){
-    arr = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
-}
-else if(lang === 'en'){
-    arr = ['mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn'];
-}
-console.log(arr);
-
-// Пример 3 
-// Напишите код, который предлагает пользователю ввести целое 
-// число. Нужно вывести на экран сколько в этом числе цифр, 
-// а также положительное оно или отрицательное. Например, 
-// "Число " + num + " однозначное положительное". 
-// Достаточно будет определить, является ли число однозначным, 
-// двузначным или трехзначным и более.
+let txt = 'Я-люблю-JS!'
+console.log(txt.replace(/-/g, '!'));
 
 
-let value = prompt("Введите целое число",'');
+// Дана строка 'я люблю JS'. С помощью метода split 
+// запишите каждое слово этой строки в отдельный элемент 
+// массива.
 
-console.log(value);
-    
-let num = value;
-let massive = [];
-while(value > 0){
-  massive.unshift(value%10);
-  value=value/10|0;
-}
+txt = 'я люблю JS';
+console.log(txt.split(" "));
 
-console.log(massive);
+// Дана строка 'привет мир'. С помощью метода split 
+// запишите каждый символ этой строки в отдельный элемент 
+// массива.
 
-let countElementsArr = massive.length;
-console.log(countElementsArr)
-if(countElementsArr == 1){
-    console.log('Число ' + num + ' однозначное')
-}
-else if(countElementsArr == 2){
-    console.log('Число ' + num + ' двузначное')
-}
-else if(countElementsArr == 3){
-    console.log('Число ' + num + ' трехзначное')
-}
-else if(countElementsArr == 4){
-    console.log('Число ' + num + ' четырехзначное')
-}
-
-// Пример 4
-// Создаются переменные red и yellow для красного и 
-// жёлтого сигналов светофора соответственно.
-// В том случае, если переменным red или yellow присвоены 
-// значения "нет", горит зелёный сигнал светофора и 
-// выводиться сообщение, разрешающее переходить дорогу.
-
-let red = "нет";
-let yellow = "нет";
-
-if(red == 'нет' && yellow == 'нет'){
-    console.log("Можно переходить дорогу")
-}
-else{
-    console.log("Стой")
-}
-
-
-// Циклы
-// Пример 5
-// Выведите столбец чисел от 1 до 12.
-
-let i = 1;
-while(i <= 12){
-    console.log(i);
-    i++;
-}
-
-// Пример 6
-// Выведите столбец чисел от 5 до 13.
-
-i = 5;
-while(i <= 13){
-    console.log(i);
-    i++;
-}
-
-// Пример 7
-// Выведите столбец четных чисел в промежутке от 0 до 16.
-
-arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-
-for (i = 0; i < arr.length; i++)
-{
-  if ((arr[i] % 2) === 0)
-  {
-  	console.log(arr[i]);
-  }
-}
-
-// Пример 8 
-// С помощью цикла найдите сумму чисел arr = [2,5,8,3,6]
-
-let result = 0;
-arr = [2,5,8,3,6];
-for(let i = 0; i < arr.length; i++){
-    result = result + arr[i];
-}
-
-console.log(result)
+txt = 'привет мир';
+console.log(txt.split(""));
