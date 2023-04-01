@@ -103,12 +103,12 @@ function cutText(n) {
     if(txt.length < n){
         result = txt;
     } else {
-        result = txt.slice(0, n)  
+        result = txt.slice(0, n) + "..."
         return result;      
     }
    
 }
-let symbols = 54;
+let symbols = 34;
 let myTxt = cutText(symbols);
 console.log ('что у меня получилось: ' + myTxt)
 //Не разобралась, почему если n>text.length то получается undefined
