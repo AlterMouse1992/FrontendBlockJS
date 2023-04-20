@@ -7,35 +7,32 @@
 // (название города, строка) со значением «ГородN» и population 
 // (населенность города, число) со значением 10 млн.
 
-var city1 = {
-    name: "ГородN",
-    population: "10 млн",
-    
-    getName() {
-        return(city1.name)
-    }
-}
+let city1 = {}
 
-console.log(city1)
+city1.name = "ГородN",
+city1.population = 10000000
 
 // Создайте объект city2 через нотацию {name: "ГородM", population: 1e6}.
 
 let city2 = {
-    getName() {
-        return(city2.name)
-    }
+    name: "ГородM",
+    population:  1e6
 } 
 
-city2.name = "ГородM";
-city2.population = 1e6;
 
-console.log(city2)
+
+
 
 // Создайте у объектов city1 и city2 методы getName(), которые вернут 
 // соответствующие названия городов.
 
-console.log(city1.getName());
-console.log(city2.getName());
+function getName() {
+   return this.name
+}
+
+city1.getName = getName;
+city2.getName = getName;
+
 
 
 // Создайте методы exportStr() у каждого из объектов. Этот метод должен 
@@ -44,13 +41,34 @@ console.log(city2.getName());
 // со своими значениями. Примечание: можно обращаться к каждому свойству 
 // через цикл for/in, но методы объекта возвращать не нужно. 
 
+function exportStr() {
+    return `name=${this.name}\npopulation=${this.population}\n`;
+}
+
+city1.exportStr = exportStr;
+city2.exportStr = exportStr;
+
 
 // Создайте глобальную функцию getObj(), которая возвращает this. 
 // А у каждого из объектов city1 или city2 метод getCity, который 
 // ссылается на getObj. Проверьте работу метода. Примечание: к объекту 
 // вызова можно обратиться через this..
 
-// <= Вот эту часть задания я пока не поняла
+function getObj() {
+    return this;
+}
+
+function getCity() {
+    return getObj.apply(this).getName();
+}
+
+city1.getCity = getCity;
+city2.getCity = getCity;
+
+console.log(city1.exportStr())
+console.log(city2.exportStr())
+console.log(city1.getCity())
+console.log(city2.getCity())
 
 
 
