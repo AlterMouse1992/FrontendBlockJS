@@ -1,129 +1,88 @@
 'use strict';
+// Задача 1
+// Запрограммируйте поведение кнопки по нажатию на нее (она меняет текст в 
+// span)
+// function buttonClick(){
+//     let elem = document.getElementById('elem');
+//     elem.innerHTML = '1';
+// }
+// Задача 2
+// Запрограммируйте  поведение кнопки по нажатию на нее (она меняет span на тег b, 
+// не изменяя при этом текст внутри тега)
+// function buttonClick(){
+//     let elem = document.getElementById('elem');
+//     elem.outerHTML = '<b>'+elem.innerHTML+'</b>';
+// }
+// Задча 3
+// Дан HTML код. Поменяйте содержимое абзацев на их порядковый номер в 
+// коде.
+// function func(){
+//     let elems = document.getElementsByTagName('p');
+//     for(let i = 0; i<elems.length; i++){
+//         elems[i].innerHTML = i+1;
+//     }
+// }
+// Задача 4
+// Дан HTML код. Поменяйте содержимое элементов с классом "а" на их 
+// порядковый номер в коде.
+// function func(){
+//     let elems = document.getElementsByClassName('a');
+//     for(let i = 0;i<elems.length;i++){
+//         elems[i].innerHTML = i+1;
+//     }
+// }
+// Задача 5
+// Дан HTML код. Поменяйте содержимое абзацев с классом "а" на их 
+// порядковый номер в коде
+// function func(){
+//         let elems = document.querySelectorAll('.a');
+//         for(let i = 0;i<elems.length;i++){
+//             elems[i].innerHTML = i+1;
+//         }
+// }
 
-//Домашнее задание
+// Домашнее задание 
 
+// Задача 1
 
-// Создайте объект city1 (var city1 = {}), укажите у него свойства name 
-// (название города, строка) со значением «ГородN» и population 
-// (населенность города, число) со значением 10 млн.
+// function buttonClick(){
+//         let elem = document.getElementById('elem');
+//         elem.innerHTML = 'Ку-ку! А я ' + '<b>' + 'жирный!' + '</b>';
+// }
 
-let city1 = {}
+// Задача 2
 
-city1.name = "ГородN",
-city1.population = 10000000
+// function buttonClick(){
+//     let elem = document.getElementById('elem');
+//     elem.innerHTML = 'Абзац превратился в h3!';
+//     elem.outerHTML = '<h3>'+ elem.innerHTML +'</h3>';
+// }    
 
-// Создайте объект city2 через нотацию {name: "ГородM", population: 1e6}.
+// Задача 3
 
-let city2 = {
-    name: "ГородM",
-    population:  1e6
-} 
+// function func(){
+//     let elems = document.getElementsByTagName('p');
+//     for(let i = 0; i<elems.length; i++){
+//         elems[i].outerHTML = '<h3>' + elems[i].innerHTML + '</h3>';
+//     }
+// }
 
+// Задача 4
 
+// Не поняла((
 
+// Задача 5
 
-
-// Создайте у объектов city1 и city2 методы getName(), которые вернут 
-// соответствующие названия городов.
-
-function getName() {
-   return this.name
-}
-
-city1.getName = getName;
-city2.getName = getName;
-
-
-
-// Создайте методы exportStr() у каждого из объектов. Этот метод должен 
-// возвращать информацию о городе в формате 
-// «name=ГородN\npopulation=10000000\n». Для второго города будет строка 
-// со своими значениями. Примечание: можно обращаться к каждому свойству 
-// через цикл for/in, но методы объекта возвращать не нужно. 
-
-function exportStr() {
-    return `name=${this.name}\npopulation=${this.population}\n`;
-}
-
-city1.exportStr = exportStr;
-city2.exportStr = exportStr;
-
-
-// Создайте глобальную функцию getObj(), которая возвращает this. 
-// А у каждого из объектов city1 или city2 метод getCity, который 
-// ссылается на getObj. Проверьте работу метода. Примечание: к объекту 
-// вызова можно обратиться через this..
-
-function getObj() {
-    return this;
-}
-
-function getCity() {
-    return getObj.apply(this).getName();
-}
-
-city1.getCity = getCity;
-city2.getCity = getCity;
-
-console.log(city1.exportStr())
-console.log(city2.exportStr())
-console.log(city1.getCity())
-console.log(city2.getCity())
-
-
-
-// Создайте массив d1 с числовыми величинами 45,78,10,3.  
-// Добавьте в массив d1 еще одно число ( d1[7] = 100). 
-// Выведите в консоль весь массив и его элементы с индексами 6 и 7.
-
-let d1 = [45, 78, 10, 3];
-
-d1[7] = 100;
-
-console.log(d1);
-console.log(d1[6]);
-console.log(d1[7]);
-
-
-// Создайте массив d2 с числовыми величинами 45,78,10,3. 
-// Посчитайте в переменную sum2 сумму чисел в нем, при помощи цикла for.
-
-let d2 = [45,78,10,3]
-let sum2 = 0;
-
-function count() {
-    for (let i = 0; i < d2.length; i++) {
-        sum2 += d2[i];
+function func(){
+    let elems = document.querySelectorAll('.a');
+    for(let i = 0;i<elems.length;i++){
+        elems[i].innerHTML = i;
     }
-    return sum2
 }
-count();
-
-console.log(sum2)
 
 
 
-// Создайте массив d3 с числовыми величинами 45,78,10,3. 
-// Добавьте в массив d3 еще одно число (например, d[7] = 100) 
-// Посчитайте в переменную sum3 сумму чисел в нем, при помощи цикла for/in.
-
-let d3 = [45,78,10,3]
-
-d3[7] = 100
-
-console.log(d3)
-
-// Не получилось((
 
 
-// Создайте массив d4 с числовыми величинами 45,78,10,3. 
-// Напишите функцию сортировки my(a,b), которая при вызове d4.sort(my) 
-// отсортирует элементы массива по убыванию чисел. Вызовите d4.sort(my)
 
-let d4 = [45,78,10,3]
 
-d4.sort((a, b) => b - a)
-
-console.log(d4)
-
-// Не по заданию, но ответ ведь верный?))
