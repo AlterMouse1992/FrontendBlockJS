@@ -1,88 +1,98 @@
 'use strict';
-// Задача 1
-// Запрограммируйте поведение кнопки по нажатию на нее (она меняет текст в 
-// span)
-// function buttonClick(){
-//     let elem = document.getElementById('elem');
-//     elem.innerHTML = '1';
+// Даны картинки. Привяжите к каждой картинке событие, чтобы по клику на 
+//картинку console.log выводился ее src.
+// let elems = document.getElementsByTagName('img');
+// for(let i = 0; i <elems.length; i++){
+//     elems[i].onclick = func;
 // }
-// Задача 2
-// Запрограммируйте  поведение кнопки по нажатию на нее (она меняет span на тег b, 
-// не изменяя при этом текст внутри тега)
-// function buttonClick(){
-//     let elem = document.getElementById('elem');
-//     elem.outerHTML = '<b>'+elem.innerHTML+'</b>';
-// }
-// Задча 3
-// Дан HTML код. Поменяйте содержимое абзацев на их порядковый номер в 
-// коде.
 // function func(){
-//     let elems = document.getElementsByTagName('p');
-//     for(let i = 0; i<elems.length; i++){
-//         elems[i].innerHTML = i+1;
-//     }
+//     console.log(this.getAttribute('src'));
 // }
-// Задача 4
-// Дан HTML код. Поменяйте содержимое элементов с классом "а" на их 
-// порядковый номер в коде.
+
+//Даны ссылки. Привяжите всем ссылкам событие - по наведению на ссылку в 
+//атрибут title запишется ее текст
+// let elems = document.querySelectorAll('a');
+// for( let i = 0; i<elems.length;i++){
+//     elems[i].addEventListener('mouseover', func);
+// }
 // function func(){
-//     let elems = document.getElementsByClassName('a');
-//     for(let i = 0;i<elems.length;i++){
-//         elems[i].innerHTML = i+1;
-//     }
+//     this.innerHTML = this.innerHTML + '(' + this.href + ')';
 // }
-// Задача 5
-// Дан HTML код. Поменяйте содержимое абзацев с классом "а" на их 
-// порядковый номер в коде
+//Привяжите всем ссылкам событие - по наведению на ссылку в конец ее 
+//текста дописывается ее href в круглых скобках
+// let elems = document.querySelectorAll('a');
+// for( let i = 0; i<elems.length;i++){
+//     elems[i].addEventListener('mouseover', func);
+// }
 // function func(){
-//         let elems = document.querySelectorAll('.a');
-//         for(let i = 0;i<elems.length;i++){
-//             elems[i].innerHTML = i+1;
-//         }
+//     this.innerHTML = this.innerHTML + '(' + this.href + ')';
+//     this.removeEventListener('mouseover', func);
+// }
+//Домашнее задание
+
+// Задание №1
+//Привяжите всем инпутам следующее событие - по потери фокуса каждый 
+//инпут выводит свое value в абзац с id="test"
+
+// let elems = document.getElementsByTagName('input');
+// let test = document.getElementById('test');
+// for(let i = 0; i < elems.length; i++){
+//     elems[i].addEventListener('blur', func)
+// }
+// function func(){
+//     test.innerHTML = this.value;
 // }
 
-// Домашнее задание 
+// Задание №2
+// Для всех инпутов сделайте так, чтобы они выводили свой value алертом 
+//при нажатии на любой из них, но только по первому нажатию. Повторное 
+//нажатие на инпут не должно вызывать реакции
 
-// Задача 1
-
-// function buttonClick(){
-//         let elem = document.getElementById('elem');
-//         elem.innerHTML = 'Ку-ку! А я ' + '<b>' + 'жирный!' + '</b>';
+// let elems = document.getElementsByTagName('input');
+// for(let i = 0; i < elems.length; i++){
+//     elems[i].onclick = func;
 // }
-
-// Задача 2
-
-// function buttonClick(){
-//     let elem = document.getElementById('elem');
-//     elem.innerHTML = 'Абзац превратился в h3!';
-//     elem.outerHTML = '<h3>'+ elem.innerHTML +'</h3>';
-// }    
-
-// Задача 3
 
 // function func(){
-//     let elems = document.getElementsByTagName('p');
-//     for(let i = 0; i<elems.length; i++){
-//         elems[i].outerHTML = '<h3>' + elems[i].innerHTML + '</h3>';
-//     }
+//     alert(this.value);
+//     this.removeEventListener('click', func);
 // }
 
-// Задача 4
 
-// Не поняла((
+// Задание №3
+// Даны абзацы с числами. По нажатию на абзац в нем должен появится 
+//квадрат числа, которое он содержит.
 
-// Задача 5
+// let elems = document.getElementsByTagName('p');
+// for(let i = 0; i < elems.length; i++){
+//     elems[i].addEventListener('click', func);
+// }
 
-function func(){
-    let elems = document.querySelectorAll('.a');
-    for(let i = 0;i<elems.length;i++){
-        elems[i].innerHTML = i;
-    }
+// function func(){
+//     this.innerHTML = this.innerHTML * this.innerHTML;
+// }
+
+// Задание №4
+
+// Даны инпуты. Сделайте так, чтобы все инпуты по потери фокуса проверяли 
+//свое содержимое на правильное количество символов. Сколько символов 
+//должно быть в инпуте, указывается в атрибуте data-length. Если вбито 
+//правильное количество, то граница инпута становится зеленой, если 
+//неправильное - красной.
+
+let elems = document.getElementsByTagName('input');
+for(let i = 0; i < elems.length; i++){
+    elems[i].addEventListener('blur', func)
 }
 
+function func() {
+    let correctLength = this.dataset.length;
+    let inputDataLength = this.value.length;
 
-
-
-
-
-
+    if (correctLength == inputDataLength) {
+        this.style.borderColor = 'green'
+    }
+    else {
+        this.style.borderColor = 'red';
+    }
+}
